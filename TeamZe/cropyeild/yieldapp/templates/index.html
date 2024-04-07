@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Zeus</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>AGRO-WIZARDS</h1>
+    </div>
+
+    <div class="main-container">
+        <div class="problem-container">
+            <div class="problem-box">
+                <div class="prob-content">
+                    <p>Problem Statement:</p>
+                    <p>Gen AI-Enabled Agricultural Optimization: Design data-driven solutions that
+                        leverage Gen AI capabilities to analyze soil health, weather patterns, crop yield data,
+                        and farming practices to optimize agricultural operations, increase crop productivity, and
+                        ensure food security while minimizing environmental impact</p>
+                </div>
+                <div class="prob-img">
+                    <img src="{% static 'images/pbstat.jpeg'%}" alt="">
+                </div>
+            </div>
+        </div>
+    
+        <div class="problem-container">
+            <div class="problem-box soln-box">
+                <div class="soln-img">
+                    <img src="{% static 'images/solution.jpg' %}" alt="">
+                </div>
+                <div class="soln-content">
+                    <p>Solution:</p>
+                    <p>Using Gen AI capabilities, we can design data-driven solutions for optimizing agricultural operations and increasing crop productivity 
+                        while ensuring food security and minimizing environmental impact.
+                         By analyzing soil health, weather patterns, crop yield data, and farming practices, these solutions can provide insights into 
+                         the best strategies for planting, irrigation, fertilization, and pest control. Machine learning algorithms and various data analysis tools we can optimistically use our resources and energy 
+                         and pave the way in development of the society.
+                          This holistic approach integrates technology with traditional farming practices to empower farmers with actionable intelligence, 
+                        leading to more sustainable and efficient agriculture</p>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="result-container">
+        <div class="input-field">
+            
+        </div>
+    </div>
+
+    {% comment %} <div class="input-field-box">
+        <form id="upload-form" method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <label for="csv_file" id="fileBtn">Upload csv file</label>
+            <input type="file" name="csv_file" id="csv_file">
+            <button class="upload-button" id="see-result">See Result</button>
+        </form>
+    </div> {% endcomment %}
+
+    <div class="resultcontianer">
+        <div class="result-box">
+            <h2 style="text-align:center">Crop Counts</h2>
+            <table>
+                <h3>Crop Counts</h3>
+                <table>
+                    {% for crop, count in context1.pci.items %}
+                    <tr>
+                        <td>{{ crop }}</td>
+                        <td>{{ count }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </table>
+            <h2 style="text-align:center">Pci graph</h2>
+            <div class="img">
+                <img src="{{ context2.image_base64 }}" alt="Plot of Crop vs No of Times It Grown">
+            </div>
+            <h2 style="text-align:center">Crop Counts</h2>
+            <table>
+                <h3>Crop Counts</h3>
+                <table>
+                    {% for state, crops in context3.mpcos.items %}
+                    <tr>
+                        <td>{{ state }}</td>
+                        <td style="text-overflow: ellipsis;white-space:nowrap;overflow:auto;">{{crops}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </table>
+        </div>
+    </div>
+
+
+    {% comment %} <img src="{{ image_base64 }}" alt="Plot of Crop vs No of Times It Grown"> {% endcomment %}
+    
+    <div class="copyright">
+        <p>Copyright © 2024 Team Zeus, All Rights Reserved.</p>
+    </div>
+
+    {% comment %} <script src="{% static 'js/script.js' %}"></script> {% endcomment %}
+</body>
+</html>
